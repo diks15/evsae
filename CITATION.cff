@@ -20,8 +20,28 @@ keywords:
   - dynamic time warping
   - human-in-the-loop annotation
   - corpus-based interpreting studies
+contact:
+  - family-names: "Rakhmawati"
+    given-names: "Susi Septaviana"
+    email: "susisr@upi.edu"
 authors:
-  # TODO: replace with the real author list, in the order used in the article.
-  - family-names: "<Family name 1>"
-    given-names: "<Given name 1>"
-    affiliation: "Faculty of Language and Literature Education, Universitas Pendidikan Indonesia"
+  - family-names: "Rakhmawati"
+    given-names: "Susi Septaviana"
+    email: "susisr@upi.edu"
+    affiliation: "English Language and Literature Study Program, Faculty of Language and Literature Education, Universitas Pendidikan Indonesia"
+  - family-names: "Kurniawan"
+    given-names: "Eri"
+    affiliation: "English Language and Literature Study Program, Faculty of Language and Literature Education, Universitas Pendidikan Indonesia"
+  - family-names: "Dallyono"
+    given-names: "Ruswan"
+    affiliation: "English Language and Literature Study Program, Faculty of Language and Literature Education, Universitas Pendidikan Indonesia"
+  - family-names: "Kusrini"
+    given-names: "Dewi"
+    affiliation: "Japanese Language Education Study Program, Faculty of Language and Literature Education, Universitas Pendidikan Indonesia"
+  - family-names: "Pinintakasih"
+    given-names: "Inanti"
+    affiliation: "International Language Institute (LBI), Faculty of Humanities, Universitas Indonesia"
+  - family-names: "Fahrizal"
+    given-names: "Diki"
+    email: "dikifahrizal461@gmail.com"
+    affiliation: "Master Program in Electrical Engineering, School of Electrical Engineering and Informatics, Institut Teknologi Bandung"

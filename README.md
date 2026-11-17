@@ -277,7 +277,7 @@ providers under their own licences.
 ## Support and contributing
 
 Questions and bug reports: please open an
-[issue](../../issues) or write to <support-email>. Pull requests are
+[issue](../../issues) or write to <dikifahrizal461@gmail.com>. Pull requests are
 welcome; please describe the change and, for alignment changes, the data used
 to evaluate it.
 
