@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 690" width="900" height="690" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#15803d"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="690" fill="#ffffff"/>
+
+  <!-- ============ INPUT ============ -->
+  <text x="40" y="34" font-size="11" font-weight="700" fill="#64748b" letter-spacing="1.2">INPUT</text>
+
+  <rect x="40" y="46" width="210" height="58" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="145" y="70" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">Source speech</text>
+  <text x="145" y="89" font-size="11" fill="#475569" text-anchor="middle">one recording (e.g. EN)</text>
+
+  <rect x="278" y="46" width="230" height="58" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="393" y="70" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">Interpreter output</text>
+  <text x="393" y="89" font-size="11" fill="#475569" text-anchor="middle">1–4 recordings (e.g. ID)</text>
+
+  <!-- optional diarization -->
+  <rect x="560" y="46" width="200" height="58" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="660" y="69" font-size="12" font-weight="600" fill="#475569" text-anchor="middle">diarization.py</text>
+  <text x="660" y="87" font-size="10" fill="#64748b" text-anchor="middle">optional: split one mixed</text>
+  <text x="660" y="99" font-size="10" fill="#64748b" text-anchor="middle">recording into speakers</text>
+  <path d="M 558 75 L 512 75" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+
+  <!-- arrows into pipeline -->
+  <path d="M 145 106 L 145 140" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path d="M 393 106 L 393 140" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- ============ AUTOMATIC PIPELINE ============ -->
+  <rect x="40" y="142" width="470" height="300" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="56" y="166" font-size="11" font-weight="700" fill="#2563eb" letter-spacing="1.2">AUTOMATIC PIPELINE</text>
+
+  <!-- stage 1 -->
+  <rect x="58" y="178" width="434" height="54" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="80" cy="205" r="11" fill="#2563eb"/>
+  <text x="80" y="209" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="100" y="199" font-size="12.5" font-weight="600" fill="#1e293b">transcription.py — ASR (faster-whisper)</text>
+  <text x="100" y="218" font-size="10.5" fill="#475569">word-level timestamps · deterministic (temp 0, beam 5) · GPU/CPU</text>
+
+  <path d="M 275 234 L 275 248" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- stage 2 -->
+  <rect x="58" y="250" width="434" height="54" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="80" cy="277" r="11" fill="#2563eb"/>
+  <text x="80" y="281" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="100" y="271" font-size="12.5" font-weight="600" fill="#1e293b">Sentence-level re-segmentation</text>
+  <text x="100" y="290" font-size="10.5" fill="#475569">equalises granularity between source and target sides</text>
+
+  <path d="M 275 306 L 275 320" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- stage 3 -->
+  <rect x="58" y="322" width="434" height="54" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="80" cy="349" r="11" fill="#2563eb"/>
+  <text x="80" y="353" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="100" y="343" font-size="12.5" font-weight="600" fill="#1e293b">analysis.py — causal DTW alignment</text>
+  <text x="100" y="362" font-size="10.5" fill="#475569">anticipation-weighted cost · many-to-one chunks allowed</text>
+
+  <path d="M 275 378 L 275 392" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- stage 4 -->
+  <rect x="58" y="394" width="434" height="34" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="80" cy="411" r="11" fill="#2563eb"/>
+  <text x="80" y="415" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="100" y="416" font-size="12.5" font-weight="600" fill="#1e293b">EVS / gap computation + category classification</text>
+
+  <!-- ============ HUMAN IN THE LOOP ============ -->
+  <rect x="560" y="178" width="300" height="250" rx="8" fill="#f0fdf4" stroke="#15803d" stroke-width="1.8"/>
+  <text x="576" y="202" font-size="11" font-weight="700" fill="#15803d" letter-spacing="1.2">HUMAN-IN-THE-LOOP VERIFICATION</text>
+
+  <rect x="578" y="214" width="264" height="46" rx="5" fill="#ffffff" stroke="#86efac" stroke-width="1.4"/>
+  <text x="592" y="233" font-size="12" font-weight="600" fill="#1e293b">Confidence triage</text>
+  <text x="592" y="250" font-size="10.5" fill="#475569">flags many-to-one, negative EVS, unpaired</text>
+
+  <rect x="578" y="268" width="264" height="62" rx="5" fill="#ffffff" stroke="#86efac" stroke-width="1.4"/>
+  <text x="592" y="287" font-size="12" font-weight="600" fill="#1e293b">Four correction operations</text>
+  <text x="592" y="304" font-size="10.5" fill="#475569">pair · add-to-chunk · detach · remove</text>
+  <text x="592" y="320" font-size="10.5" fill="#475569">local edits; neighbouring pairs preserved</text>
+
+  <rect x="578" y="338" width="264" height="46" rx="5" fill="#ffffff" stroke="#86efac" stroke-width="1.4"/>
+  <text x="592" y="357" font-size="12" font-weight="600" fill="#1e293b">waveform.py — boundary editing</text>
+  <text x="592" y="374" font-size="10.5" fill="#475569">two-tier view · drag to refine timestamps</text>
+
+  <text x="710" y="408" font-size="10.5" fill="#15803d" text-anchor="middle" font-style="italic">adjudicates meaning; machine cannot</text>
+
+  <!-- loop arrows -->
+  <path d="M 494 350 L 556 300" stroke="#15803d" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+  <text x="528" y="318" font-size="9.5" fill="#15803d" text-anchor="middle" transform="rotate(-39 528 318)">flagged</text>
+
+  <path d="M 556 355 L 494 411" stroke="#15803d" stroke-width="1.8" stroke-dasharray="6 3" marker-end="url(#arrowGreen)"/>
+  <text x="528" y="396" font-size="9.5" fill="#15803d" text-anchor="middle" transform="rotate(42 528 396)">corrected</text>
+
+  <!-- ============ GUI ============ -->
+  <path d="M 275 444 L 275 466" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="468" width="470" height="56" rx="6" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+  <text x="275" y="491" font-size="12.5" font-weight="600" fill="#1e293b" text-anchor="middle">app.py — Tkinter GUI (orchestration)</text>
+  <text x="275" y="510" font-size="10.5" fill="#475569" text-anchor="middle">segment tables · lag results · charts · session management</text>
+
+  <!-- ============ OUTPUT ============ -->
+  <text x="40" y="562" font-size="11" font-weight="700" fill="#64748b" letter-spacing="1.2">OUTPUT</text>
+  <path d="M 160 526 L 160 574" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path d="M 390 526 L 390 574" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="576" width="240" height="58" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="160" y="599" font-size="12.5" font-weight="600" fill="#1e293b" text-anchor="middle">Session file (.json)</text>
+  <text x="160" y="617" font-size="10.5" fill="#475569" text-anchor="middle">resumable · auditable · reproducible</text>
+
+  <rect x="300" y="576" width="240" height="58" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="420" y="599" font-size="12.5" font-weight="600" fill="#1e293b" text-anchor="middle">Three tidy CSV files</text>
+  <text x="420" y="617" font-size="10.5" fill="#475569" text-anchor="middle">summary · segments · pairs → R / SPSS</text>
+
+  <!-- batch note -->
+  <rect x="560" y="468" width="300" height="56" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="710" y="491" font-size="12" font-weight="600" fill="#475569" text-anchor="middle">scripts/ — batch processing</text>
+  <text x="710" y="509" font-size="10.5" fill="#64748b" text-anchor="middle">same pipeline, corpus scale, source cache</text>
+  <path d="M 660 466 L 660 446 L 275 446" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3" fill="none"/>
+
+  <!-- local processing note -->
+  <text x="860" y="617" font-size="10" fill="#64748b" text-anchor="end" font-style="italic">All processing runs locally; no data leaves the machine.</text>
+</svg>

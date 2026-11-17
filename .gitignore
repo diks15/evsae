@@ -1,0 +1,29 @@
+# Daftar putih: hanya berkas yang boleh dipublikasikan ikut repositori.
+# Data penelitian, rekaman, draf artikel/paten, model, dan hasil build
+# sengaja TIDAK ikut. Tambahkan berkas baru di sini secara eksplisit.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/Licence.txt
+!/CITATION.cff
+!/CHANGELOG.md
+!/requirements.txt
+!/interpreter_lag_gui.py
+!/interpreter_lag/
+!/docs/
+!/scripts/
+!/PANDUAN_PENGGUNAAN.md
+!/README_PORTABLE.txt
+!/EVSAE_macOS.command
+!/logo-upi-fpbs.png
+!/kemendiktisaintek.png
+
+# Di dalam scripts/ hanya skrip build (skrip riset memuat nama peserta).
+/scripts/*
+!/scripts/README.md
+!/scripts/build_portable.ps1
+!/scripts/build_source_zip.py
+
+__pycache__/
+*.py[cod]

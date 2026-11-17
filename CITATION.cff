@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use EVSAE in your research, please cite it as below."
+title: "EVSAE: Ear-Voice Span Analysis and Editing"
+abstract: >-
+  Open-source desktop application that automates Ear-Voice Span (EVS)
+  measurement for simultaneous interpreting research: deterministic speech
+  recognition with word-level timestamps, sentence re-segmentation, causal
+  dynamic time warping alignment of source and interpreter utterances, EVS
+  computation and categorisation, and a confidence-triaged verification
+  interface.
+type: software
+version: 1.0.0
+date-released: "2026-11-17"
+license: MIT
+repository-code: "https://github.com/diks15/evsae"
+keywords:
+  - Ear-Voice Span
+  - simultaneous interpreting
+  - automatic speech recognition
+  - dynamic time warping
+  - human-in-the-loop annotation
+  - corpus-based interpreting studies
+authors:
+  # TODO: replace with the real author list, in the order used in the article.
+  - family-names: "<Family name 1>"
+    given-names: "<Given name 1>"
+    affiliation: "Faculty of Language and Literature Education, Universitas Pendidikan Indonesia"
